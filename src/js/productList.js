@@ -1,6 +1,6 @@
 import { renderListWithTemplate } from './utils.js';
 
-export default class ProductLis{
+export default class ProductList{
     constructor(category, dataSource, listElement){
 
         this.category = category;
@@ -10,7 +10,7 @@ export default class ProductLis{
     }
 
     async init (){
-        const list = await this.dataSouce.getData();
+        const list = await this.dataSource.getData();
         this.renderList(list);
     }
 
