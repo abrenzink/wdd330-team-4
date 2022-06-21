@@ -14,9 +14,11 @@ export default class ProductDetails {
       .getElementById("addToCart")
       .addEventListener("click", this.addToCart.bind(this));
   }
+  
   addToCart() {
     setLocalStorage("so-cart", this.product);
   }
+
   renderProductDetails() {
     return `<section class="product-detail"> <h3>${this.product.Brand.Name}</h3>
     <h2 class="divider">${this.product.NameWithoutBrand}</h2>

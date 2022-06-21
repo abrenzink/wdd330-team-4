@@ -1,11 +1,13 @@
 import ProductData from './productData.js';
 import ProductList from './productList.js';
+import { loadHeaderFooter } from './utils.js';
 
-const data = new ProductData('tents');
+loadHeaderFooter();
+
+const dataSource = new ProductData('tents');
 
 const listElement = document.querySelector('.product-list');
 
-const list = new ProductList('tents', data, listElement);
+const myList = new ProductList('tents', dataSource, listElement);
 
-list.init();
-console.log(list);
+myList.init();
