@@ -26,3 +26,12 @@ export function getParam(param) {
   const urlParams = new URLSearchParams(queryString);
   return urlParams.get(param);
 }
+
+export function renderListWithTemplate(template, parentElement, list, callback) {
+  const template = document.getElementById("product-card-template");
+        list.forEach(product => {
+            const clone = template.content.cloneNode(true);
+            const hydratedTemplate = this.prepareTemplate(clone, product);
+            this.listElement.appendChild(hydratedTemplate);
+        })
+}
