@@ -1,7 +1,7 @@
 import { setLocalStorage, getLocalStorage, loadHeaderFooter } from './utils.js';
 
-loadHeaderFooter();
 
+loadHeaderFooter();
 export default class ProductDetails {
   constructor(productId, dataSource){
     this.productId = productId;
@@ -28,8 +28,7 @@ export default class ProductDetails {
     setLocalStorage('so-cart', cartContents);
   }
   renderProductDetails() {
-    return `<section class="product-detail"> 
-    <h3>${this.product.Brand.Name}</h3>
+    return `<section class="product-detail"> <h3>${this.product.Brand.Name}</h3>
     <h2 class="divider">${this.product.NameWithoutBrand}</h2>
     <img
       class="divider"
@@ -43,8 +42,7 @@ export default class ProductDetails {
     </p>
     <div class="product-detail__add">
       <button id="addToCart" data-id="${this.product.Id}">Add to Cart</button>
-    </div>
-    </section>`;
+    </div></section>`;
   }
 
 }
