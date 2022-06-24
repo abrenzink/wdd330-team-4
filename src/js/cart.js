@@ -1,4 +1,4 @@
-import { loadHeaderFooter } from './utils.js';
+import { loadHeaderFooter } from "./utils.js";
 
 loadHeaderFooter();
 
