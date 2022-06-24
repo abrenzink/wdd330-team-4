@@ -219,3 +219,24 @@ footer {
   font-size: var(--small-font);
   padding: 1em;
 }
+
+.item-category {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  width: 100%;
+
+}
+
+.item-category img{
+  width: 85px;
+}
+
+.item-links {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.item-links a {
+  color: black;
+  text-decoration: none;
+}
