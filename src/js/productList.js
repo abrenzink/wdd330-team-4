@@ -15,27 +15,17 @@ export default class ProductList {
     //set the title to the current category
     document.querySelector(".title").innerHTML = this.category;
   }
-<<<<<<< HEAD
   
   prepareTemplate(template, product) {
     
-=======
-
-  prepareTemplate(template, product) {
->>>>>>> ab--individual6
     template.querySelector("a").href += product.Id;
     template.querySelector("img").src = product.Images.PrimaryMedium;
     template.querySelector("img").alt += product.Name;
     template.querySelector(".card__brand").textContent = product.Brand.Name;
-<<<<<<< HEAD
-    template.querySelector(".card__name").textContent = product.NameWithoutBrand;
-    template.querySelector(".product-card__price").textContent += product.FinalPrice; 
-=======
     template.querySelector(".card__name").textContent =
       product.NameWithoutBrand;
     template.querySelector(".product-card__price").textContent +=
       product.FinalPrice;
->>>>>>> ab--individual6
     return template;
   }
   renderList(list) {
@@ -43,19 +33,6 @@ export default class ProductList {
     this.listElement.innerHTML = "";
     //get the template
     const template = document.getElementById("product-card-template");
-<<<<<<< HEAD
-    renderListWithTemplate(template, this.listElement, list, this.prepareTemplate);
-    
-  }
-  // original method before moving the template logic to utils.js
-  // renderList(list) {
-    // const template = document.getElementById('product-card-template');
-    // list.forEach(product => {
-    //   const clone = template.content.cloneNode(true);
-    //   const hydratedTemplate = this.prepareTemplate(clone, product);
-    //   this.listElement.appendChild(hydratedTemplate);
-    // })
-=======
     renderListWithTemplate(
       template,
       this.listElement,
@@ -71,6 +48,5 @@ export default class ProductList {
   //   const hydratedTemplate = this.prepareTemplate(clone, product);
   //   this.listElement.appendChild(hydratedTemplate);
   // })
->>>>>>> ab--individual6
   // }
 }

@@ -1,10 +1,5 @@
-<<<<<<< HEAD
 import { getLocalStorage } from "./utils.js";
 import ExternalServices from "./ExternalServices.js";
-=======
-import { getLocalStorage } from './utils.js';
-import ExternalServices from './ExternalServices.js';
->>>>>>> main
 
 const services = new ExternalServices();
 function formDataToJSON(formElement) {
@@ -47,27 +42,16 @@ export default class CheckoutProcess {
   }
   calculateItemSummary() {
     const summaryElement = document.querySelector(
-<<<<<<< HEAD
-      this.outputSelector + " #cartTotal"
+      this.outputSelector + " # cartTotal"
     );
     const itemNumElement = document.querySelector(
-      this.outputSelector + " #num-items"
-=======
-      this.outputSelector + ' #cartTotal'
-    );
-    const itemNumElement = document.querySelector(
-      this.outputSelector + ' #num-items'
->>>>>>> main
+      this.outputSelector + " # num-items"
     );
     itemNumElement.innerText = this.list.length;
     // calculate the total of all the items in the cart
     const amounts = this.list.map((item) => item.FinalPrice);
     this.itemTotal = amounts.reduce((sum, item) => sum + item);
-<<<<<<< HEAD
     summaryElement.innerText = "$" + this.itemTotal;
-=======
-    summaryElement.innerText = '$' + this.itemTotal;
->>>>>>> main
   }
   calculateOrdertotal() {
     this.shipping = 10 + (this.list.length - 1) * 2;
@@ -80,9 +64,8 @@ export default class CheckoutProcess {
     this.displayOrderTotals();
   }
   displayOrderTotals() {
-<<<<<<< HEAD
-    const shipping = document.querySelector(this.outputSelector + " #shipping");
-    const tax = document.querySelector(this.outputSelector + " #tax");
+    const shipping = document.querySelector(this.outputSelector + " # shipping");
+    const tax = document.querySelector(this.outputSelector + " # tax");
     const orderTotal = document.querySelector(
       this.outputSelector + "# orderTotal"
     );
@@ -92,19 +75,6 @@ export default class CheckoutProcess {
   }
   async checkout() {
     const formElement = document.forms["checkout"];
-=======
-    const shipping = document.querySelector(this.outputSelector + ' #shipping');
-    const tax = document.querySelector(this.outputSelector + ' #tax');
-    const orderTotal = document.querySelector(
-      this.outputSelector + ' #orderTotal'
-    );
-    shipping.innerText = '$' + this.shipping;
-    tax.innerText = '$' + this.tax;
-    orderTotal.innerText = '$' + this.orderTotal;
-  }
-  async checkout() {
-    const formElement = document.forms['checkout'];
->>>>>>> main
 
     const json = formDataToJSON(formElement);
     // add totals, and item details
