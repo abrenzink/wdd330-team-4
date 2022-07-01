@@ -1,5 +1,5 @@
 import ExternalServices from "./ExternalServices.js";
-import ProductDetails from "./productDetails.js";
+import ProductDetails from "./ProductDetails.js";
 import { getParam } from "./utils.js";
 
 const productId = getParam("product");
