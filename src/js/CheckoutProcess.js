@@ -1,21 +1,20 @@
-import { getLocalStorage } from "./utils.js";
+import { setLocalStorage, getLocalStorage, alertMessage, removeAllAlerts } from "./utils.js"
 import ExternalServices from "./ExternalServices.js";
 
 const services = new ExternalServices();
-function formDataToJSON(formElement) {
-  const formData = new FormData(formElement),
-    convertedJSON = {};
 
-  formData.forEach(function (value, key) {
-    convertedJSON[key] = value;
-  });
-
-  return convertedJSON;
+function formDataToJSON(formElement) {    
+  let formData = new FormData(formElement);
+  // Object.fromEntries creates a new object made from an iterable list like an Array or Map
+  // Object.entries takes an object and converts it into an Array that is iterable.
+  const converted = Object.fromEntries(formData.entries());
+  // if we have radios or checkboxes which share the same name we need to do  abit more or we will only get at most one of the checked values
+  // converted.category = formData.getAll('category');
+  return converted;
 }
 
 function packageItems(items) {
   const simplifiedItems = items.map((item) => {
-    console.log(item);
     return {
       id: item.Id,
       price: item.FinalPrice,
@@ -83,12 +82,18 @@ export default class CheckoutProcess {
     json.tax = this.tax;
     json.shipping = this.shipping;
     json.items = packageItems(this.list);
-    console.log(json);
-    try {
-      const res = await services.checkout(json);
-      console.log(res);
-    } catch (err) {
-      console.log(err);
-    }
+   try {
+    const res = await services.checkout(json);
+    console.log(res);
+    setLocalStorage("so-cart", []);
+    location.assign("../checkout/checkedout.html");
+   }
+   catch(err) {
+     // get rid of any preexisting alerts.
+     removeAllAlerts();
+     for(let message in err.message) {
+        alertMessage(err.message[message]);
+     }
+   }
   }
 }

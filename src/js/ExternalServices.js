@@ -1,12 +1,13 @@
-const baseURL = "http://157.201.228.93:2992/"
-function convertToJson(res) {
+const baseURL = "http://157.201.228.93:2992/";
+// const baseURL = 'http://127.0.0.1:3000/';
+async function convertToJson(res) {
+  const data = await res.json();
   if (res.ok) {
-    return res.json();
+    return data
   } else {
-    throw new Error("Bad Response");
+    throw { name: "servicesError", message: data };
   }
 }
-
 export default class ExternalServices  {
   constructor() {
     //Using the API means we don't need to tie the dataSource to a specific category anymore. So we can remove this in the constructor.
@@ -30,12 +31,12 @@ export default class ExternalServices  {
   }
   async checkout(payload) {
     const options = {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(payload),
     };
-    return await fetch(baseURL + 'checkout/', options).then(convertToJson);
+    return await fetch(baseURL + "checkout/", options).then(convertToJson);
   }
 }

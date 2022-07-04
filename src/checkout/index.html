@@ -34,34 +34,44 @@
           <fieldset>
             <legend>Payment</legend>
             <label for="cardNumber">Card number</label>
-            <input name="cardNumber" required />
+            <input
+              name="cardNumber"
+              required
+              placeholder="No spaces or dashes!"
+              maxlength="16"
+              minlength="16"
+            />
             <label for="expiration">Expiration</label>
-            <input name="expiration" required />
+            <input name="expiration" required placeholder="mm/yy" />
             <label for="code">Security Code</label>
-            <input name="code" required />
+            <input
+              name="code"
+              required
+              placeholder="xxx"
+              maxlength="3"
+              minlength="3"
+            />
           </fieldset>
           <fieldset class="checkout-summary">
             <legend>Order Summary</legend>
             <ul>
               <li>
                 <label for="cartTotal"
-                  >Item Subtotal (<span id="num-items"></span>): </label
-                ><span name="cartTotal" id="cartTotal"></span>
+                  >Item Subtotal(<span id="num-items"></span>)</label
+                >
+                <p name="cartTotal" id="cartTotal"></p>
               </li>
-              <br>
               <li>
-                <label for="shipping">Shipping Estimate: </label>
-                <span id="shipping"></span>
+                <label for="shipping">Shipping Estimate</label>
+                <p id="shipping"></p>
               </li>
-              <br>
               <li>
-                <label for="tax">Tax: </label>
-                <span id="tax"></span>
+                <label for="tax">Tax</label>
+                <p id="tax"></p>
               </li>
-              <br>
               <li>
-                <label for="orderTotal"><b>Order Total: </b></label>
-                <span id="orderTotal"></span>
+                <label for="orderTotal"><b>Order Total</b></label>
+                <p id="orderTotal"></p>
               </li>
             </ul>
           </fieldset>
@@ -69,7 +79,6 @@
           <button id="checkoutSubmit" type="submit">Checkout</button>
         </form>
       </section>
-      
     </main>
     <footer id="main-footer"></footer>
     <script src="../js/checkout.js" type="module"></script>
